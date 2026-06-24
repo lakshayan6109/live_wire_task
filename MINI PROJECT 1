@@ -1,0 +1,135 @@
+# Student Management System 
+ 
+Students = {} 
+Action_stack = [] 
+Waiting_queue = [] 
+ 
+ 
+Def add_student(): 
+    Roll = int(input(“Enter Roll Number: “)) 
+    Name = input(“Enter Name: “) 
+    Mark = float(input(“Enter Mark: “)) 
+ 
+    Students[roll] = { 
+        “name”: name, 
+        “mark”: mark 
+    } 
+ 
+    Action_stack.append(f”Added {name}”) 
+    Waiting_queue.append(name) 
+ 
+    Print(“Student Added Successfully!”) 
+ 
+ 
+Def view_students(): 
+    If len(students) == 0: 
+        Print(“No students available.”) 
+        Return 
+ 
+    Print(“\n--- Student List ---“) 
+ 
+    For roll, data in students.items(): 
+        Print(f”Roll No : {roll}”) 
+        Print(f”Name    : {data[‘name’]}”) 
+        Print(f”Mark    : {data[‘mark’]}”) 
+        Print(“-“ * 20) 
+ 
+ 
+Def search_student(): 
+    Roll = int(input(“Enter Roll Number: “)) 
+ 
+    If roll in students: 
+        Print(“Student Found”) 
+        Print(“Name :”, students[roll][“name”]) 
+        Print(“Mark :”, students[roll][“mark”]) 
+    Else: 
+        Print(“Student Not Found”) 
+ 
+ 
+Def delete_student(): 
+    Roll = int(input(“Enter Roll Number: “)) 
+ 
+    If roll in students: 
+        Name = students[roll][“name”] 
+        Del students[roll] 
+ 
+        Action_stack.append(f”Deleted {name}”) 
+        Print(“Student Deleted Successfully”) 
+    Else: 
+        Print(“Student Not Found”) 
+ 
+ 
+Def average_mark(): 
+    If len(students) == 0: 
+        Print(“No Students Available”) 
+        Return 
+ 
+    Total = 0 
+ 
+    For data in students.values(): 
+        Total += data[“mark”] 
+ 
+    Average = total / len(students) 
+ 
+    Print(“Average Mark =”, average) 
+ 
+ 
+Def show_stack(): 
+    Print(“\nRecent Actions (Stack)”) 
+ 
+    If len(action_stack) == 0: 
+        Print(“No Actions”) 
+    Else: 
+        For action in reversed(action_stack): 
+            Print(action) 
+ 
+ 
+Def show_queue(): 
+    Print(“\nWaiting Queue”) 
+ 
+    If len(waiting_queue) == 0: 
+        Print(“Queue Empty”) 
+    Else: 
+        For student in waiting_queue: 
+            Print(student) 
+ 
+ 
+While True: 
+    Print(“\n===== STUDENT MANAGEMENT SYSTEM =====”) 
+    Print(“1. Add Student”) 
+    Print(“2. View Students”) 
+    Print(“3. Search Student”) 
+    Print(“4. Delete Student”) 
+    Print(“5. Average Mark”) 
+    Print(“6. Show Stack”) 
+    Print(“7. Show Queue”) 
+    Print(“8. Exit”) 
+ 
+    Choice = input(“Enter Your Choice: “) 
+ 
+    If choice == “1”: 
+        Add_student() 
+ 
+    Elif choice == “2”: 
+        View_students() 
+ 
+    Elif choice == “3”: 
+        Search_student() 
+ 
+    Elif choice == “4”: 
+        Delete_student() 
+ 
+    Elif choice == “5”: 
+        Average_mark() 
+ 
+    Elif choice == “6”: 
+        Show_stack() 
+ 
+    Elif choice == “7”: 
+        Show_queue() 
+ 
+Elif choice == “8”: 
+Print(“Thank You!”) 
+Break 
+Else: 
+Print(“Invalid Choice”)
